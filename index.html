@@ -493,6 +493,40 @@ body[data-view="mtc"] #sForm,body[data-view="mtc"] #sRes{display:none!important}
 .dash>h2{margin:0;font-family:var(--display);font-size:24px;letter-spacing:.03em;text-transform:uppercase;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
 .dash>h2 small{font-family:var(--body);font-size:13px;letter-spacing:0;text-transform:none;color:var(--muted);font-weight:500}
 .tabs .tab-box{border-color:#1F5FAF;color:#4F8AD9}.tabs .tab-box[aria-selected="true"]{background:#1F5FAF;color:#fff}
+.btag.dk{background:#E5243B;margin-left:4px}
+.bdays{display:grid;gap:8px;margin:2px 0 6px}
+.bdays h3{margin:0;font-family:var(--display);font-size:20px;text-transform:uppercase;letter-spacing:.03em}
+.bdays h3 small{font-family:var(--body);font-size:13px;text-transform:none;letter-spacing:0;color:var(--muted);font-weight:500}
+.bday{display:grid;gap:4px;text-align:left;padding:12px 14px;border-radius:12px;border:2px solid var(--line);background:var(--surface);color:var(--ink);width:100%;font-family:inherit}
+.bday .bdt{font-weight:800;font-size:16px}
+.bday .bdn{font-size:13px;color:var(--muted)}.bday .bdn b{color:var(--ink)}.bday .bdn b.r{color:#E5243B}
+.bday .bdbar{height:6px;border-radius:3px;background:color-mix(in srgb,var(--line) 60%,transparent);overflow:hidden}.bday .bdbar i{display:block;height:100%;background:#E5243B}
+.bday.on{border-color:#1F5FAF;background:color-mix(in srgb,#1F5FAF 9%,var(--surface));box-shadow:0 0 0 2px color-mix(in srgb,#1F5FAF 25%,transparent)}
+/* faixa Terra · Céu · Mar */
+.tcm{width:100%;max-width:1100px;margin:6px auto 0;border-radius:14px;overflow:hidden;position:relative;height:120px;background:#111317}
+.tcm .sc{position:absolute;inset:0 0 24px;opacity:0;animation:tcmFade 15s infinite}
+.tcm .sc.s2{animation-delay:5s}.tcm .sc.s3{animation-delay:10s}
+@keyframes tcmFade{0%{opacity:0}3%{opacity:1}30%{opacity:1}34%{opacity:0}100%{opacity:0}}
+.tcm .mv{position:absolute;left:0;animation:tcmMove 5s linear infinite}
+@keyframes tcmMove{from{transform:translateX(-150px)}to{transform:translateX(min(1100px,100vw))}}
+.tcm .s1 .mv{bottom:8px}.tcm .s2 .mv{top:22px;animation-name:tcmFly}.tcm .s3 .mv{bottom:2px}
+.tcm .s2 .mv{animation-delay:5s}.tcm .s3 .mv{animation-delay:10s}.tcm .s1 .mv{animation-delay:0s}
+@keyframes tcmFly{from{transform:translate(-150px,26px)}to{transform:translate(min(1100px,100vw),-6px)}}
+.tcm .road{position:absolute;left:0;right:0;bottom:0;height:16px;background:#464C54}
+.tcm .road i{position:absolute;left:0;top:7px;width:200%;height:3px;background:repeating-linear-gradient(90deg,#F5B800 0 30px,transparent 30px 70px);animation:tcmRoad 1.2s linear infinite}
+@keyframes tcmRoad{to{transform:translateX(-70px)}}
+.tcm .wv{position:absolute;left:0;right:0;bottom:0;height:22px;background:linear-gradient(#1F5FAF,#0F3264)}
+.tcm .wv i{position:absolute;left:0;top:-4px;width:200%;height:8px;background:radial-gradient(circle at 10px 8px,transparent 8px,#1F5FAF 9px) 0 0/20px 8px repeat-x;animation:tcmRoad 2s linear infinite}
+.tcm .shipbob{animation:tcmBob 1.6s ease-in-out infinite alternate}@keyframes tcmBob{to{transform:translateY(3px)}}
+.tcm .wheel{transform-box:fill-box;transform-origin:center;animation:tcmSpin .5s linear infinite}@keyframes tcmSpin{to{transform:rotate(360deg)}}
+.tcm .tbar2{position:absolute;left:0;right:0;bottom:0;height:24px;display:flex;align-items:center;gap:14px;padding:0 12px;font:800 12px/1 var(--body);letter-spacing:.08em;color:#7D8894;background:#111317}
+.tcm .tbar2 span{animation:tcmLbl 15s infinite}.tcm .tbar2 span.l2{animation-delay:5s}.tcm .tbar2 span.l3{animation-delay:10s}
+@keyframes tcmLbl{0%,33%{color:#F5B800}34%,100%{color:#7D8894}}
+.tcm .tbar2 b{margin-left:auto;color:#ECEFF2;display:flex;align-items:center;gap:6px;letter-spacing:.04em}
+@media (prefers-reduced-motion:reduce){.tcm .sc,.tcm .mv,.tcm .road i,.tcm .wv i,.tcm .wheel,.tcm .shipbob,.tcm .tbar2 span{animation:none}.tcm .s1{opacity:1}.tcm .s1 .mv{transform:translateX(40%)}}
+.boxseg{grid-template-columns:repeat(3,minmax(0,1fr))}
+.boxseg button{font-size:14px}
+.boxseg button[data-bf="deck"][aria-selected="true"]{border-color:#E5243B;background:#FDE7EA}
 .btag{display:inline-block;margin-left:6px;padding:1px 6px;border-radius:6px;background:#1F5FAF;color:#fff;font:700 11px/1.5 var(--body);letter-spacing:.04em;vertical-align:middle}
 body.boxmode .mload,body.boxmode #mtcPals,body.boxmode #mtcSelBar,body.boxmode #dash,body.boxmode #mtcAll,body.boxmode #mtcMode{display:none!important}
 .kbt{height:48px;min-width:56px;padding:0 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface);font-weight:700;font-size:13px;color:var(--muted)}
@@ -555,6 +589,36 @@ button.dhr{cursor:pointer}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .admt.wa{color:#5BD08E}}
 :root[data-theme="dark"] .admt.wa{color:#5BD08E}
 @media (max-width:560px){.foot .adm{flex:1 1 100%;order:10}}
+/* barra do usuário conectado + Sair */
+.sesbar{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#0F1317;border:1px solid #39424C;border-radius:10px;padding:6px 6px 6px 12px;font-size:14px;color:#C9D1D9}
+.sesbar span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sesbar b{color:#fff}
+.sesbar .pf{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#F5B800;margin-left:6px}
+.sesout{flex:none;display:inline-flex;align-items:center;gap:6px;height:40px;padding:0 14px;border-radius:8px;border:2px solid #E5243B;background:#E5243B;color:#fff;font-weight:800;font-size:15px}
+/* seleção de vários itens para retirar */
+.multibar{position:sticky;top:env(safe-area-inset-top,0px);z-index:4;display:grid;gap:8px}
+.multibar .mon{width:100%;height:48px;font-size:16px;font-weight:800;border:2px solid #E5243B;color:#B42318;background:var(--surface)}
+.mact{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:10px;border:2px solid #E5243B;border-radius:10px;background:var(--surface);box-shadow:0 4px 12px rgba(0,0,0,.12)}
+.mact span{flex:1 1 100%;font-weight:700;color:#B42318}
+.mact .mgo{flex:1;height:46px;background:#E5243B;border-color:#E5243B;color:#fff;font-weight:800;font-size:16px}
+.mact .btn:not(.mgo){height:46px}
+.mact .mall{flex:1 1 100%;border:2px solid #F5B800;background:#FFF6D6;color:#14171C;font-weight:800}
+.mtable tr.msel td{background:rgba(245,184,0,.28)!important}
+.mtable tr.msel .rck span{background:#F5B800;border-color:#C99700}
+.mtable tr.msel .rck span::after{content:"";position:absolute;left:8px;top:3px;width:6px;height:12px;border:solid #14171C;border-width:0 3px 3px 0;transform:rotate(45deg)}
+body.multi .mtable tbody tr{cursor:pointer}
+.mlist{display:grid;gap:4px;max-height:34vh;overflow:auto;font-family:var(--mono);font-size:13px}
+.mlist div{padding:6px 8px;border-radius:6px;background:var(--bg);border-left:4px solid #E5243B}
+/* ordenar tocando no título da coluna */
+.mtable th[data-sort]{cursor:pointer;user-select:none;-webkit-user-select:none}
+.mtable th[data-sort]::after{content:" ⇅";opacity:.45;font-size:12px}
+.mtable th[data-sort].asc::after{content:" ▲";opacity:1;color:var(--ink)}
+.mtable th[data-sort].desc::after{content:" ▼";opacity:1;color:var(--ink)}
+.mtable th[data-sort].asc,.mtable th[data-sort].desc{color:var(--ink);background:color-mix(in srgb,var(--accent) 22%,var(--surface))}
+.sortchips{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.sortchips span{font-size:14px;color:var(--muted);font-weight:600}
+.sortchips button{height:38px;padding:0 12px;border-radius:999px;border:2px solid var(--line);background:var(--surface);color:var(--ink);font-weight:700;font-size:14px}
+.sortchips button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 /* tela de usuário e senha */
 .lock{position:fixed;inset:0;z-index:80;background:#14181D;color:#F2F4F6;display:grid;place-items:center;padding:24px max(16px,env(safe-area-inset-left,0px));overflow:auto}
 .lockbox{width:100%;max-width:360px;display:grid;gap:14px;text-align:center}
@@ -578,6 +642,7 @@ button.dhr{cursor:pointer}
     <div class="cover-bot"><div class="by">Desenvolvido por <b>Thiago Pereira</b> · Motor</div><div class="mode" id="mode">Carregando…</div></div>
   </div>
   <div class="top-in gut">
+    <div class="sesbar" id="sesBar" hidden><span id="sesWho"></span><button type="button" class="sesout" id="sesOut"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg>Sair</button></div>
     <nav class="tabs" role="tablist">
       <button type="button" role="tab" data-v="hoje" aria-selected="false" class="tab-new">Nova tarefa <span class="chev" aria-hidden="true">›</span></button>
       <button type="button" role="tab" data-v="feitos" aria-selected="false">Feitos <small id="feitosN"></small></button>
@@ -663,6 +728,7 @@ button.dhr{cursor:pointer}
     <button type="button" class="btn primary mtcall" id="retXls" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Exportar Excel das retiradas</button>
     <a class="btn wa" id="retWa" target="_blank" rel="noopener" style="text-decoration:none;height:48px;font-size:16px" hidden>Enviar retiradas ao administrador · WhatsApp</a>
     <a class="btn mail" id="retMail" style="text-decoration:none;height:48px;font-size:16px" hidden>Enviar retiradas ao administrador · E-mail</a>
+    <div class="sortchips" id="retSort" hidden><span>Ordenar:</span><button type="button" data-rs="at">Data</button><button type="button" data-rs="item">Item</button><button type="button" data-rs="pal">Pallet</button><button type="button" data-rs="quem">Quem retirou</button></div>
     <form class="msearch" id="retForm" autocomplete="off" role="search" hidden><input id="retIn" type="search" inputmode="numeric" placeholder="Peça, pack ou nome" aria-label="Buscar nas retiradas" enterkeyhint="search"><button type="button" id="retClear">Limpar</button></form>
     <div class="palchips" id="retPals"></div>
     <div class="empty" id="retEmpty"><b>Nenhuma retirada ainda</b><span>Em <b>Itens MTC</b>, abra o pallet e marque o quadradinho da caixa que saiu.</span></div>
@@ -701,7 +767,8 @@ button.dhr{cursor:pointer}
     <form class="msearch" id="mtcPalForm" autocomplete="off" role="search" hidden><input id="mtcPalIn" type="search" inputmode="numeric" placeholder="Buscar neste pallet: peça ou pack" aria-label="Buscar dentro do pallet" enterkeyhint="search"><button type="button" class="kbt" data-kb="mtcPalIn" aria-label="Trocar o teclado">ABC</button><button type="button" id="mtcPalClear">Limpar</button></form>
     <div class="palchips" id="mtcPals"></div><div class="selbar" id="mtcSelBar" hidden></div>
     <section class="dash" id="dash" hidden aria-label="Resumo"></section>
-    <div class="tablewrap" id="mtcWrap" hidden><table class="mtable"><thead><tr><th class="ck" title="Retirado">Tirou</th><th>Item</th><th>Qtd</th><th>Pack Number</th><th>Pallet</th><th>Status</th><th>No app</th></tr></thead><tbody id="mtcBody"></tbody></table></div>
+    <div class="multibar" id="multiBar" hidden><button type="button" class="btn mon" id="multiOn">☑ Selecionar vários para retirar</button><div class="mact" id="multiAct" hidden><span id="multiN">Toque nos itens para marcar</span><button type="button" class="btn mall" id="multiAll">☑ Selecionar todos</button><button type="button" class="btn mgo" id="multiGo" disabled>Retirar</button><button type="button" class="btn" id="multiOff">Cancelar</button></div></div>
+    <div class="tablewrap" id="mtcWrap" hidden><table class="mtable"><thead id="mtcHead"><tr><th class="ck" title="Retirado">Tirou</th><th data-sort="item" title="Ordenar por item">Item</th><th data-sort="qtd" title="Ordenar por quantidade">Qtd</th><th data-sort="pack" title="Ordenar por pack">Pack Number</th><th data-sort="pal" title="Ordenar por pallet">Pallet</th><th data-sort="st" title="Ordenar por status">Status</th><th>No app</th></tr></thead><tbody id="mtcBody"></tbody></table></div>
   </section>
   <section id="feitos">
   <section class="draft" id="draft" hidden>
@@ -732,6 +799,15 @@ button.dhr{cursor:pointer}
     <div class="empty" id="empty" hidden></div>
   </div>
   </section>
+  <div class="tcm" aria-hidden="true">
+    <div class="sc s1" style="background:linear-gradient(#8CC4EE,#DDEFFB)"><div class="road"><i></i></div>
+      <svg class="mv" width="120" height="50" viewBox="0 0 120 50"><rect x="2" y="4" width="76" height="36" rx="4" fill="#ECEFF2" stroke="#14181D" stroke-width="2"/><text x="40" y="27" text-anchor="middle" font-size="11" font-weight="800" font-family="Barlow,sans-serif" fill="#14181D">MINILOAD</text><rect x="80" y="12" width="30" height="28" rx="5" fill="#1E2228"/><path d="M88 15h17l2 10H88z" fill="#8CBEE6"/><rect x="106" y="34" width="5" height="4" fill="#F5B800"/><g fill="#14181D"><circle class="wheel" cx="18" cy="42" r="7" stroke="#999" stroke-width="2" stroke-dasharray="4 3"/><circle class="wheel" cx="36" cy="42" r="7" stroke="#999" stroke-width="2" stroke-dasharray="4 3"/><circle class="wheel" cx="95" cy="42" r="7" stroke="#999" stroke-width="2" stroke-dasharray="4 3"/></g></svg></div>
+    <div class="sc s2" style="background:linear-gradient(#2A6EBE,#A9D3F2)"><svg style="position:absolute;left:12%;top:10px" width="70" height="28"><g fill="#fff"><circle cx="16" cy="16" r="12"/><circle cx="34" cy="12" r="14"/><circle cx="52" cy="17" r="11"/></g></svg><svg style="position:absolute;right:10%;top:40px" width="60" height="24"><g fill="#fff"><circle cx="14" cy="14" r="10"/><circle cx="30" cy="10" r="12"/><circle cx="45" cy="14" r="9"/></g></svg>
+      <svg class="mv" width="130" height="50" viewBox="0 0 130 50"><path d="M2 25h20" stroke="#fff" stroke-width="2" stroke-dasharray="3 4" opacity=".8"/><ellipse cx="72" cy="25" rx="45" ry="8" fill="#F5F7FA" stroke="#3C4650"/><path d="M62 25h20l-14 22h-10z" fill="#C8CED6"/><path d="M62 25h20l-12-21h-9z" fill="#D7DCE4"/><path d="M28 23h11l-6-17h-6z" fill="#F5B800"/><path d="M117 22l7 3-7 3z" fill="#F5F7FA"/><g fill="#5A78A0"><circle cx="86" cy="23" r="1.6"/><circle cx="92" cy="23" r="1.6"/><circle cx="98" cy="23" r="1.6"/><circle cx="104" cy="23" r="1.6"/></g></svg></div>
+    <div class="sc s3" style="background:linear-gradient(#FFBE78,#FAE1BE)"><svg style="position:absolute;left:46%;top:30px" width="60" height="40"><circle cx="30" cy="34" r="26" fill="#FF963C"/></svg><div class="wv"><i></i></div>
+      <svg class="mv" width="140" height="56" viewBox="0 0 140 56"><g class="shipbob"><path d="M4 36h126l-12 18H16z" fill="#1E2228"/><path d="M8 42h118" stroke="#C82832" stroke-width="2"/><g stroke="#14181D" stroke-width=".8"><rect x="12" y="24" width="14" height="12" fill="#E5243B"/><rect x="27" y="24" width="14" height="12" fill="#1F5FAF"/><rect x="42" y="24" width="14" height="12" fill="#F5B800"/><rect x="57" y="24" width="14" height="12" fill="#1C8648"/><rect x="72" y="24" width="14" height="12" fill="#ECEFF2"/><rect x="87" y="24" width="14" height="12" fill="#E5243B"/><rect x="19" y="12" width="14" height="12" fill="#F5B800"/><rect x="34" y="12" width="14" height="12" fill="#1C8648"/><rect x="49" y="12" width="14" height="12" fill="#E5243B"/><rect x="64" y="12" width="14" height="12" fill="#1F5FAF"/><rect x="79" y="12" width="14" height="12" fill="#F5B800"/></g><rect x="106" y="6" width="17" height="30" fill="#ECEFF2" stroke="#14181D"/><rect x="109" y="10" width="11" height="5" fill="#8CBEE6"/></g></svg></div>
+    <div class="tbar2"><span class="l1">TERRA</span><span class="l2">CÉU</span><span class="l3">MAR</span><b><svg width="16" height="16" viewBox="0 0 24 24" fill="#F5B800"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.3 5.8 20.9l1.6-7L2 9.2l7.1-.6z"/></svg>Leitor Motor · OPL</b></div>
+  </div>
 </main>
 
 <div class="lock" id="lock" hidden><form class="lockbox" id="lockF" autocomplete="off">
@@ -1751,11 +1827,12 @@ function whereOf(r){
 const MTC_EMBED=null;
 /* caixas sem pack de verdade (vazio, 0, 000…) na mesma peça e pallet ganham #2, #3… para cada caixa ser única: retirar uma não some com as outras */
 const packUnico=rows=>{const c={};for(const r of rows){if(/\d{6,}/.test(r.pack))continue;const k=r.pal+"|"+r.item+"|"+r.pack;c[k]=(c[k]||0)+1;if(c[k]>1)r.pack=(r.pack?r.pack+" ":"")+"#"+c[k]}return rows};
-const mtcFrom=d=>d&&Array.isArray(d.rows)?{nome:d.nome||"Lista MTC",em:d.importadoEm||"",rows:packUnico(d.rows.map(r=>({item:r[0]||"",qtd:r[1]||"",pack:r[2]||"",pal:String(r[3]||""),st:r[4]||"",pag:r[5],verde:!!r[6],box:!!r[7]})))}:null;
+const boxDiasDe=v=>!v?[]:(v===1||v===true||v==="1")?["anterior"]:String(v).split(",").map(x=>x.trim()).filter(Boolean);
+const mtcFrom=d=>d&&Array.isArray(d.rows)?{nome:d.nome||"Lista MTC",em:d.importadoEm||"",rows:packUnico(d.rows.map(r=>({item:r[0]||"",qtd:r[1]||"",pack:r[2]||"",pal:String(r[3]||""),st:r[4]||"",pag:r[5],verde:!!r[6],box:!!r[7],boxd:boxDiasDe(r[7])})))}:null;
 const MTC_OLD=null;
 const mtcOld=mtcFrom(MTC_OLD);let mtcNew=null,mtcSel="new";
 const IS_TEAM=true;
-const APP_BUILD="20261101173004"; // o empacotador troca pela data da versão // o link da equipe troca para true
+const APP_BUILD="20261101173121"; // o empacotador troca pela data da versão // o link da equipe troca para true
 let mtcNewRaw=null;
 const MTC_LS="leitor-motor-lista-pecas";
 mtcNew=mtcFrom(MTC_EMBED);mtcNewRaw=MTC_EMBED;
@@ -1805,6 +1882,7 @@ async function gsCall(body){ // pedido curto vai na URL (GET): dentro do Claude 
   if(body.a==="lista"||body.a==="mail"){const r=await fetch(GS_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(body)});return await r.json()}
   const r=await fetch(GS_URL+"?d="+encodeURIComponent(JSON.stringify(body))+"&z="+Date.now(),{cache:"no-store"});return await r.json()}
 const soConsulta=()=>!!(ses&&ses.perfil==="consulta");
+function semPermissao(){try{beep(false)}catch(e){}openSheet('<h3>Sem permissão</h3><p style="font-size:16px;color:var(--ink)">Você não tem permissão. Favor contatar o administrador.</p><p>Seu acesso é só de consulta: você pode olhar e pesquisar, mas não pode alterar nada.</p><div class="row-acts"><a class="btn wa" href="https://wa.me/'+ADMIN_WA+'" target="_blank" rel="noopener" style="text-decoration:none">Contatar o administrador</a><button class="btn" type="button" id="spOk">Entendi</button></div>');$("spOk").onclick=closeSheet}
 function lockShow(msg){
   $("lock").hidden=false;$("lockMsg").textContent=msg||"Digite o seu usuário e a sua senha.";$("lockErr").textContent="";$("lockPin").value="";
   let u="";try{u=localStorage.getItem(USR_LS)||""}catch(e){}if(!$("lockUser").value)$("lockUser").value=u;
@@ -1813,7 +1891,7 @@ function lockShow(msg){
 function logout(msg){
   ses=null;sesSave();gsMarks={};gsLocal={};gsIds=new Set();
   if(IS_TEAM){try{localStorage.removeItem(MTC_LS)}catch(e){}mtcNew=null;mtcNewRaw=null;if(mtcSel==="new")mtc=null}
-  try{render()}catch(e){}lockShow(msg);
+  try{render()}catch(e){}try{sesBarUpd()}catch(e){}if(multiOn)multiStop();lockShow(msg);
 }
 let gsQueue=[];try{gsQueue=JSON.parse(localStorage.getItem(GSQ_LS)||"[]")||[]}catch(e){}
 gsQueue=gsQueue.map(q=>q.mov?q:(q.body?{key:q.key,mov:q.key.startsWith("LOCAL|")?{id:uid(),tipo:"LOCAL",pal:q.body.pal,texto:String(q.body.sit||"").replace(/^LOCAL:\s*/,""),quando:q.body.quando}:{id:uid(),tipo:/DESFEIT/.test(q.body.sit||"")?"DESFEITO":"RETIRADO",lista:q.body.lista,pal:q.body.pal,item:q.body.item,qtd:q.body.qtd,pack:q.body.pack,lib:q.body.lib,obs:((/Obs:\s*(.*)$/.exec(q.body.sit||"")||[])[1]||""),quando:q.body.quando}}:null)).filter(q=>q&&q.mov.tipo!=="DESFEITO");
@@ -1850,10 +1928,10 @@ async function gsFlush(){
       if(!j){await gsPull();if(gsIds.has(q.mov.id)){gsQueue.shift();gsSaveQ();continue}gsOk=false;break} // sem resposta: só tira da fila se a planilha mostrar o código
       if(j.erro==="sessao"){logout("Seu acesso expirou ou foi bloqueado. Entre de novo com usuário e senha.");break}
       gsQueue.shift();gsSaveQ();
-      if(!j.ok&&q.mov.tipo==="RETIRADO"&&j.erro==="so_consulta"){delete retMarks[q.key];retSave();toast("Acesso de consulta não grava retirada. Entre com o seu usuário pessoal.")}
+      if(!j.ok&&q.mov.tipo==="RETIRADO"&&j.erro==="so_consulta"){delete retMarks[q.key];retSave();toast("Você não tem permissão. Favor contatar o administrador.")}
       else if(!j.ok&&q.mov.tipo==="RETIRADO"){delete retMarks[q.key];retSave();beep(false);
         toast("Não gravado: essa caixa já tinha sido retirada"+(j.quem?" por "+j.quem:"")+(j.quando?" em "+j.quando:"")+".")}
-      else if(!j.ok)toast(j.erro==="so_consulta"?"Acesso de consulta não grava nada. Entre com o seu usuário pessoal.":"A planilha recusou: "+(j.erro||"erro"));
+      else if(!j.ok)toast(j.erro==="so_consulta"?"Você não tem permissão. Favor contatar o administrador.":"A planilha recusou: "+(j.erro||"erro"));
     }
   }finally{gsBusy=false}
   await gsPull();
@@ -1880,7 +1958,7 @@ async function gsPushLista(){
   try{
     const v=await (await fetch(GS_URL+"?a=versao&t="+encodeURIComponent(ses.t)+"&z="+Date.now(),{cache:"no-store"})).json();
     if(!v||!v.ok)return;if(String(v.importadoEm||"")>=em){gsListaEnviada=em;return}
-    const rows=mtcNewRaw.rows.map(r=>r[7]?[String(r[0]||""),String(r[1]??""),String(r[2]||""),String(r[3]??""),String(r[4]||""),"","",1]:[String(r[0]||""),String(r[1]??""),String(r[2]||""),String(r[3]??""),String(r[4]||"")]);
+    const rows=mtcNewRaw.rows.map(r=>r[7]?[String(r[0]||""),String(r[1]??""),String(r[2]||""),String(r[3]??""),String(r[4]||""),"","",(r[7]===1||r[7]===true||r[7]==="1")?1:String(r[7])]:[String(r[0]||""),String(r[1]??""),String(r[2]||""),String(r[3]??""),String(r[4]||"")]);
     let j=null;try{j=await gsCall({a:"lista",t:ses.t,lista:{nome:mtcNewRaw.nome||"Itens MTC",importadoEm:em,n:rows.length,soma:somaLista(rows),rows}})}catch(x){j=null}
     if(!j){const v2=await (await fetch(GS_URL+"?a=versao&t="+encodeURIComponent(ses.t)+"&z="+Date.now(),{cache:"no-store"})).json();if(v2&&v2.ok&&String(v2.importadoEm||"")>=em)j={ok:true}}
     if(j&&j.ok){gsListaEnviada=em;if(!j.igual)toast("Lista MTC enviada para a equipe: "+rows.length+" linhas")}
@@ -1898,6 +1976,62 @@ setInterval(()=>{if(!document.hidden){gsFlush();gsPull()}},20000);
 document.addEventListener("visibilitychange",()=>{if(!document.hidden){gsFlush();gsPull()}});
 setTimeout(()=>{gsFlush();gsPull()},300);
 async function retSave(){try{localStorage.setItem(RET_LS,JSON.stringify(retMarks))}catch(e){}if(db){try{await db.doc("meta/retiradas").set({marks:retMarks})}catch(e){}}}
+/* ===== ordenar tabelas tocando no título da coluna ===== */
+const sortNat=(a,b)=>String(a??"").localeCompare(String(b??""),"pt-BR",{numeric:true,sensitivity:"base"});
+const sortNum=v=>{const n=parseFloat(String(v??"").replace(",","."));return isNaN(n)?Infinity:n};
+let mtcSortK={k:"",d:1};try{mtcSortK=JSON.parse(localStorage.getItem("leitor-motor-ordem")||"null")||mtcSortK}catch(e){}
+function mtcCmp(padrao){
+  const k=mtcSortK.k,d=mtcSortK.d||1;if(!k)return padrao;
+  const val={item:r=>r.item,qtd:r=>r.qtd,pack:r=>r.pack,pal:r=>r.pal,st:r=>isRet(r)?"retirado "+retWhen(r):stDisp(r.st)}[k];if(!val)return padrao;
+  const num=k==="qtd"||k==="pal";
+  return (a,b)=>isRet(a)-isRet(b)||(num?(sortNum(val(a))-sortNum(val(b)))*d:sortNat(val(a),val(b))*d)||padrao(a,b);
+}
+function sortHeadUpd(){document.querySelectorAll("#mtcHead th[data-sort]").forEach(th=>{th.classList.toggle("asc",th.dataset.sort===mtcSortK.k&&mtcSortK.d>0);th.classList.toggle("desc",th.dataset.sort===mtcSortK.k&&mtcSortK.d<0);
+  th.setAttribute("aria-sort",th.dataset.sort===mtcSortK.k?(mtcSortK.d>0?"ascending":"descending"):"none")})}
+let retSortK={k:"at",d:-1};
+const retCmp=(a,b)=>{const ma=retMark(a)||offRet(a)||{},mb=retMark(b)||offRet(b)||{},d=retSortK.d,k=retSortK.k,at=((ma.at||0)-(mb.at||0));
+  if(k==="item")return sortNat(a.item,b.item)*d||-at;
+  if(k==="pal")return (sortNum(a.pal)-sortNum(b.pal))*d||sortNat(a.item,b.item);
+  if(k==="quem")return sortNat(ma.quem,mb.quem)*d||-at;
+  return at*d};
+/* ===== retirar vários itens de uma vez (mesma pessoa, mesma autorização) ===== */
+let multiOn=false;const multiSel=new Map();
+function multiUpd(show){const b=$("multiBar");if(!b)return;if(show!==undefined)b.hidden=!show&&!multiOn;$("multiOn").hidden=multiOn;$("multiAct").hidden=!multiOn;document.body.classList.toggle("multi",multiOn);
+  const n=multiSel.size;$("multiN").textContent=n?n+" ite"+(n>1?"ns selecionados":"m selecionado")+" · pode trocar de pallet ou pesquisar outro item":"Toque nos itens para marcar";$("multiGo").disabled=!n;{const vis=multiVis();const all=vis.length&&vis.every(r=>multiSel.has(retKey(r)));$("multiAll").textContent=all?"✕ Desmarcar todos":"☑ Selecionar todos ("+vis.length+")";$("multiAll").disabled=!vis.length}$("multiGo").textContent=n?"Retirar "+n+" ite"+(n>1?"ns":"m"):"Retirar"}
+function multiVis(){if(!mtc)return [];const out=[];document.querySelectorAll("#mtcBody tr[data-ret]").forEach(tr=>{let k;try{k=JSON.parse(tr.dataset.ret)}catch(x){return}const r=mtc.rows.find(x=>(x.pal||"")===(k[0]||"")&&x.item===k[1]&&(x.pack||"")===(k[2]||""));if(r&&!isRet(r))out.push(r)});return out}
+function multiAll(){const vis=multiVis();if(!vis.length)return;const all=vis.every(r=>multiSel.has(retKey(r)));
+  vis.forEach(r=>{const k=retKey(r);if(all)multiSel.delete(k);else multiSel.set(k,r)});
+  document.querySelectorAll("#mtcBody tr[data-ret]").forEach(tr=>{if(tr.classList.contains("ret"))return;tr.classList.toggle("msel",!all);if(!all)tr.classList.remove("verde")});
+  multiUpd(true);toast(all?"Seleção limpa":vis.length+" itens marcados")}
+function multiStop(){multiOn=false;multiSel.clear();multiUpd();try{renderMtc()}catch(e){}}
+function multiStart(){
+  if(!ses){lockShow("Entre com usuário e senha para fazer a retirada.");return}
+  if(soConsulta()){semPermissao();return}
+  multiOn=true;multiSel.clear();multiUpd(true);toast("Toque em cada item que vai retirar")}
+function multiRetirar(){
+  if(!ses){lockShow("Entre com usuário e senha para fazer a retirada.");return}
+  if(soConsulta()){semPermissao();return}
+  const L=[...multiSel.entries()].filter(([k,r])=>!isRet(r));if(!L.length){toast("Nenhum item para retirar.");return}
+  let last={};try{last=JSON.parse(localStorage.getItem(RET_LS+"-nomes")||"{}")||{}}catch(e){}
+  const obs0=(typeof mtcBox!=="undefined"&&mtcBox&&view==="mtc")?"Decante":"";
+  openSheet('<h3>Retirar '+L.length+' ite'+(L.length>1?'ns':'m')+'</h3><div class="mlist">'+L.map(([k,r])=>'<div><b>'+esc(r.item)+'</b> · qtd '+esc(r.qtd)+' · pack '+esc(r.pack||"—")+' · pallet '+esc(r.pal||"—")+'</div>').join("")+'</div>'+
+    '<form class="manf" id="rmF" autocomplete="off"><p style="margin:0">Retirada por: <b>'+esc(ses.nome)+'</b> <small>(pelo seu usuário)</small></p>'+
+    '<label>Quem autorizou<input id="rmLib" autocapitalize="words" style="text-transform:none" value="'+esc(last.lib||"")+'" enterkeyhint="next"></label><label>Observação <small>(se quiser, vale para todos)</small><input id="rmObs" maxlength="80" style="text-transform:none" placeholder="Ex.: foi para a linha 3" enterkeyhint="done" value="'+obs0+'"></label>'+
+    '<p class="err" id="rmErr"></p><div class="row-acts"><button class="btn primary" type="submit" style="flex:1;background:#E5243B;border-color:#E5243B">Confirmar retirada de '+L.length+'</button><button class="btn" type="button" id="rmCancel">Voltar</button></div></form>',()=>{
+    $("rmCancel").onclick=closeSheet;setTimeout(()=>$("rmLib").focus(),50);
+    $("rmLib").addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();$("rmObs").focus()}});
+    $("rmF").addEventListener("submit",e=>{
+      e.preventDefault();if(!ses){closeSheet();lockShow("Entre com usuário e senha para fazer a retirada.");return}
+      const quem=ses.nome,lib=$("rmLib").value.trim();if(!lib){$("rmErr").textContent="Escreva quem autorizou.";$("rmLib").focus();return}
+      try{localStorage.setItem(RET_LS+"-nomes",JSON.stringify({quem,lib}))}catch(x){}
+      const obs=($("rmObs").value||"").trim();let feitos=0,pulou=0;const at=Date.now();
+      for(const [k,r] of L){const kk=retKey(r);if(gsMarks[kk]||retMarks[kk]){pulou++;continue}
+        retMarks[kk]={at,quem,lib,obs};gsSend(kk,r,retMarks[kk],"RETIRADO"+(obs?" · Obs: "+obs:""));feitos++;undoPush("baixa do pack "+(r.pack||r.item),()=>devolver(r))}
+      retSave();closeSheet();multiOn=false;multiSel.clear();multiUpd();renderMtc();beep(true);
+      toast("Baixa feita: "+feitos+" ite"+(feitos>1?"ns foram":"m foi")+" para a aba Retiradas"+(pulou?" ("+pulou+" já tinham sido retirados por outra pessoa)":""));
+    });
+  });
+}
 function retToggle(r){
   const k=retKey(r);
   if(retMarks[k]||/RETIRAD/i.test(r.st||"")){
@@ -1907,7 +2041,7 @@ function retToggle(r){
   }
   // retirar material: quem retirou (pelo login) e quem autorizou
   if(!ses){lockShow("Entre com usuário e senha para fazer a retirada.");return}
-  if(soConsulta()){lockShow("Acesso de consulta: só olhar. Para retirar, entre com o seu usuário pessoal.");return}
+  if(soConsulta()){semPermissao();return}
   if(gsMarks[k]){toast("Essa caixa já foi retirada por "+(gsMarks[k].quem||"outra pessoa")+".");return}
   let last={};try{last=JSON.parse(localStorage.getItem(RET_LS+"-nomes")||"{}")||{}}catch(e){}
   openSheet('<h3>Retirar material</h3><p><b>'+esc(r.item)+'</b> · qtd '+esc(r.qtd)+' · pack '+esc(r.pack||"—")+' · <b>pallet '+esc(r.pal||"—")+'</b></p>'+
@@ -1998,7 +2132,7 @@ async function mtcLoadFile(f){
     if(!d){toast("Não achei as colunas de peça e pallet nessa planilha");return}
     try{localStorage.setItem(MTC_LS,JSON.stringify(d))}catch(e){}
     if(db){try{await db.doc("listas/mtc").set(d)}catch(e){}}
-    try{const bx=JSON.parse(localStorage.getItem(BOX_LS)||"[]");if(bx.length)boxAplica(d,new Set(bx))}catch(e){}
+    try{const bo=boxGuardado();Object.keys(bo).forEach(k=>{if(bo[k]&&bo[k].length)boxAplica(d,new Set(bo[k]),k)})}catch(e){}
     mtcNew=mtcFrom(d);mtcNewRaw=d;mtcSel="new";mtc=mtcNew;$("mtcIn").value="";render();gsPushLista();
     const np=new Set(d.rows.map(r=>r[3]).filter(Boolean)).size;
     toast("Lista atualizada: "+d.rows.length+" linhas em "+np+" pallets");
@@ -2143,20 +2277,65 @@ async function mtcExportAll(){
 }
 /* BOX: itens da lista de box (Excel) ganham a marca BOX; o número da cor no fim não importa */
 let mtcBox=false;const BOX_LS="leitor-motor-box";
+let boxFiltro="todas";try{boxFiltro=localStorage.getItem("leitor-motor-boxfiltro")||"todas"}catch(e){}
 const boxBase=v=>String(v||"").toUpperCase().trim().split(/\s+/)[0];
-function boxAplica(raw,set){if(!raw||!Array.isArray(raw.rows))return 0;let n=0;raw.rows.forEach(r=>{const b=set.has(boxBase(r[0]));if(b){r[7]=1;n++}else if(r.length>7)r[7]=0});return n}
+function boxAplica(raw,set,dia){if(!raw||!Array.isArray(raw.rows))return 0;dia=dia||"anterior";let n=0;raw.rows.forEach(r=>{if(!set.has(boxBase(r[0])))return;const L=boxDiasDe(r[7]);if(!L.includes(dia))L.push(dia);while(r.length<7)r.push("");r[7]=L.join(",");n++});return n}
+function boxGuardado(){let o={};try{o=JSON.parse(localStorage.getItem(BOX_LS)||"{}")||{}}catch(e){}if(Array.isArray(o))o=o.length?{anterior:o}:{};return o}
+const boxDiaTxt=d=>d==="anterior"?"carregado antes (sem data)":/^\d{4}-\d\d-\d\d$/.test(d)?d.split("-").reverse().join("/"):d;
+let boxDia="";try{boxDia=localStorage.getItem("leitor-motor-boxdia")||""}catch(e){}
+function boxApagarDia(dia){
+  if(!mtcNewRaw){toast("Só o aparelho que carregou a lista MTC pode apagar");return}
+  confirmDel("Apagar o BOX do dia "+boxDiaTxt(dia)+"? As caixas continuam na lista MTC, só deixam de ser BOX desse dia.",()=>{
+    mtcNewRaw.rows.forEach(r=>{const L=boxDiasDe(r[7]).filter(x=>x!==dia);if(r.length>7)r[7]=L.length?L.join(","):0});
+    const o=boxGuardado();delete o[dia];try{localStorage.setItem(BOX_LS,JSON.stringify(o))}catch(e){}
+    const d=new Date(),p2=x=>String(x).padStart(2,"0");mtcNewRaw.importadoEm=d.getFullYear()+"-"+p2(d.getMonth()+1)+"-"+p2(d.getDate())+" "+p2(d.getHours())+":"+p2(d.getMinutes());
+    try{localStorage.setItem(MTC_LS,JSON.stringify(mtcNewRaw))}catch(e){}
+    mtcNew=mtcFrom(mtcNewRaw);if(mtcSel==="new")mtc=mtcNew;boxDia="";render();gsPushLista();toast("BOX do dia "+boxDiaTxt(dia)+" apagado")},"Sim, apagar")}
+/* confronto: itens da lista de box x lista MTC (o que tem para criar box, o que já foi decantado, o que não está em nenhum pallet) */
+function boxConfronto(set,linhas){
+  if(!window.XLSX){toast("Gerador de Excel não carregou");return}
+  if(!mtc||!mtc.rows.length){toast("Carregue a lista MTC primeiro");return}
+  const diaC=boxDia&&boxDia!=="todos"?boxDia:"";
+  if(!set){const o=boxGuardado();const bx=diaC?(o[diaC]||[]):[].concat(...Object.values(o));set=new Set(bx.length?bx:mtc.rows.filter(r=>r.box&&(!diaC||r.boxd.includes(diaC))).map(r=>boxBase(r.item)))}
+  const num=v=>/^\d+$/.test(String(v||""))?Number(v):(v||"");
+  const R=mtc.rows.filter(r=>set.has(boxBase(r.item)));
+  const viv=R.filter(r=>!isRet(r)).sort((a,b)=>(+a.pal||9999)-(+b.pal||9999)||a.item.localeCompare(b.item));
+  const dec=R.filter(isRet).sort((a,b)=>a.item.localeCompare(b.item));
+  const tem=new Set(mtc.rows.map(r=>boxBase(r.item)));
+  const extra={};(linhas||[]).forEach(l=>{const v=boxBase(l&&l[0]);if(v&&!extra[v])extra[v]=(l||[]).slice(1).filter(x=>x!=null&&x!=="").join(" · ")});
+  const nao=[...set].filter(v=>!tem.has(v)).sort();
+  const d=new Date(),pd=n=>String(n).padStart(2,"0"),hoje=pd(d.getDate())+"/"+pd(d.getMonth()+1)+"/"+d.getFullYear();
+  const wb=XLSX.utils.book_new();wb.Props={Title:"Confronto BOX",Author:AUTORIA.autor,Company:AUTORIA.area,Comments:CREDITO};
+  const add=(rows,nome,w)=>{const ws=XLSX.utils.aoa_to_sheet(rows);ws["!cols"]=w.map(x=>({wch:x}));XLSX.utils.book_append_sheet(wb,ws,nome)};
+  add([["CONFRONTO · BOX "+(diaC?"DO DIA "+boxDiaTxt(diaC).toUpperCase():"(TODOS OS DIAS)")+" x ESTOQUE · gerado em "+hoje],[],
+       ["Itens na lista de box",set.size],
+       ["Caixas para criar box (no estoque)",viv.length],
+       ["Itens diferentes para criar box",new Set(viv.map(r=>boxBase(r.item))).size],
+       ["Caixas já decantadas (DEC)",dec.length],
+       ["Itens da lista que não estão em nenhum pallet",nao.length],[],[CREDITO]],"Resumo",[46,12]);
+  add([["✓","Item","Quantidade","Pack Number","Pallet","Onde está"],...viv.map(r=>["",r.item,num(r.qtd),r.pack||"",num(r.pal),r.pal?palObs(r.pal)||"":""])],"Criar box",[4,20,11,16,7,26]);
+  add([["Item","Quantidade","Pack Number","Pallet","Decantado em","Quem retirou","Obs"],...dec.map(r=>{const m=retMark(r)||offRet(r)||{};return [r.item,num(r.qtd),r.pack||"",num(r.pal),String(retWhen(r)||"").replace(/^RETIRAD[OA]\s*/i,""),m.quem||"",m.obs||""]})],"Já decantados",[20,11,16,7,16,22,20]);
+  add([["Item","Outras colunas do Excel"],...(nao.length?nao.map(v=>[v,extra[v]||""]):[["Todos os itens da lista estão nos pallets",""]])],"Não encontrados",[20,40]);
+  saveXlsx(wb,"Confronto_BOX"+(diaC&&diaC!=="anterior"?"_dia_"+diaC.split("-").reverse().join("-"):"")+"_gerado_"+pd(d.getDate())+"-"+pd(d.getMonth()+1)+"-"+d.getFullYear()+".xlsx");
+  toast("Confronto: "+viv.length+" caixas para criar box · "+dec.length+" já decantadas · "+nao.length+" itens não encontrados");
+}
 async function boxCarregar(f){
   if(!f)return;if(!window.XLSX){toast("Leitor de Excel não carregou");return}
   try{const wb=XLSX.read(await f.arrayBuffer(),{type:"array"});const ws=wb.Sheets[wb.SheetNames[0]];const A=XLSX.utils.sheet_to_json(ws,{header:1,raw:false});
     const set=new Set();A.forEach(l=>{const v=boxBase(l&&l[0]);if(/^[A-Z]\d{6,}/.test(v))set.add(v)});
     if(!set.size){toast("Não achei itens na primeira coluna");return}
-    try{localStorage.setItem(BOX_LS,JSON.stringify([...set]))}catch(e){}
     if(!mtcNewRaw){toast("Carregue a lista MTC primeiro");return}
-    const n=boxAplica(mtcNewRaw,set);const d=new Date(),p2=x=>String(x).padStart(2,"0");
+    const hj=new Date(),q2=x=>String(x).padStart(2,"0"),hjs=hj.getFullYear()+"-"+q2(hj.getMonth()+1)+"-"+q2(hj.getDate());
+    const dia=await new Promise(ok=>{openSheet('<h3>📦 BOX de qual dia?</h3><p>'+set.size+' itens nesta lista. Escolha o dia deste box.</p><form class="manf" id="bdF"><label>Dia do box<input id="bdIn" type="date" value="'+hjs+'" style="text-transform:none"></label><div class="row-acts"><button class="btn primary" type="submit" style="flex:1">Carregar box deste dia</button><button class="btn" type="button" id="bdNo">Cancelar</button></div></form>',()=>{
+      $("bdNo").onclick=()=>{closeSheet();ok(null)};$("bdF").addEventListener("submit",e=>{e.preventDefault();const v=$("bdIn").value||hjs;closeSheet();ok(v)})})});
+    if(!dia)return;
+    {const o=boxGuardado();o[dia]=[...set];try{localStorage.setItem(BOX_LS,JSON.stringify(o))}catch(e){}}
+    const n=boxAplica(mtcNewRaw,set,dia);boxDia=dia;try{localStorage.setItem("leitor-motor-boxdia",dia)}catch(e){}const d=new Date(),p2=x=>String(x).padStart(2,"0");
     mtcNewRaw.importadoEm=d.getFullYear()+"-"+p2(d.getMonth()+1)+"-"+p2(d.getDate())+" "+p2(d.getHours())+":"+p2(d.getMinutes());
     try{localStorage.setItem(MTC_LS,JSON.stringify(mtcNewRaw))}catch(e){}
     mtcNew=mtcFrom(mtcNewRaw);if(mtcSel==="new")mtc=mtcNew;render();gsPushLista();beep(true);
-    toast("Lista de box: "+set.size+" itens · "+n+" caixas da lista MTC marcadas BOX");
+    toast("BOX do dia "+boxDiaTxt(dia)+": "+set.size+" itens · "+n+" caixas marcadas · baixando o confronto…");
+    setTimeout(()=>boxConfronto(set,A),400);
   }catch(e){toast("Não consegui ler esse arquivo")}
 }
 let mtcMode="peca";try{mtcMode=localStorage.getItem("leitor-motor-mtc-modo")==="pack"?"pack":"peca"}catch(e){}
@@ -2250,7 +2429,7 @@ async function palObsSet(p,v){
   renderMtc();
 }
 function openObs(p){
-  if(soConsulta()){lockShow("Acesso de consulta: só olhar. Para informar o local, entre com o seu usuário pessoal.");return}
+  if(soConsulta()){semPermissao();return}
   openSheet('<h3>📍 Onde está o Pallet '+esc(p)+'?</h3><p>Escreva o lugar. Ex.: Recebimento, Decon, dentro do Motor.</p><form class="manf" id="obF" autocomplete="off"><label>Local do pallet<input id="obIn" maxlength="60" style="text-transform:none" value="'+esc(palObs(p))+'" enterkeyhint="done"></label><p class="err" id="obErr"></p><div class="row-acts"><button class="btn primary" type="submit" style="flex:1">Confirmar</button><button class="btn" type="button" id="obCancel">Voltar</button></div>'+(palObs(p)?'<div class="row-acts" style="margin-top:8px"><button class="btn" type="button" id="obDel" style="flex:1">Apagar o local</button></div>':'')+'</form>',()=>{
     $("obCancel").onclick=closeSheet;setTimeout(()=>$("obIn").focus(),50);
     const save=async v=>{v=String(v||"").trim();const antes=palObs(p);if(v===antes){closeSheet();return}
@@ -2311,12 +2490,12 @@ function renderMtc(){
   if(Q&&Q.pal&&podeAdmin())sum+='<button type="button" class="btn joinbtn" data-join="'+esc(Q.pal)+'">🔗 '+(palGrp(Q.pal).length>1?"Juntar / separar pallets":"Juntar com outro pallet")+'</button>';
   if(pqs)sum+='<div class="mempty">'+(shown.length?shown.length+" de "+found.length+" linhas deste pallet com “"+esc($("mtcPalIn").value.trim())+"”":"Nada com “"+esc($("mtcPalIn").value.trim())+"” neste pallet.")+"</div>";
   $("mtcSum").innerHTML=sum;
-  $("mtcWrap").hidden=!shown.length;
+  $("mtcWrap").hidden=!shown.length;multiUpd(!!shown.length);
   if(!Q){$("dash").hidden=false;renderDash()}
   const qs=pqs||(Q&&Q.qs)||[];
-  $("mtcBody").innerHTML=shown.slice(0,500).sort((a,b)=>isRet(a)-isRet(b)||(+a.pal||999)-(+b.pal||999)||a.item.localeCompare(b.item)).map(r=>mtcRow(r,qs)).join("");
+  $("mtcBody").innerHTML=shown.slice().sort(mtcCmp((a,b)=>isRet(a)-isRet(b)||(+a.pal||999)-(+b.pal||999)||a.item.localeCompare(b.item))).slice(0,500).map(r=>mtcRow(r,qs)).join("");sortHeadUpd();
 }
-function mtcRow(r,qs){{const ret=isRet(r);return '<tr data-ret="'+esc(JSON.stringify([r.pal,r.item,r.pack]))+'" class="'+(ret?"ret":(r.verde?"verde":""))+'"><td class="ck"><label class="rck"><input type="checkbox" aria-label="Retirado"'+(ret?" checked":"")+'><span></span></label></td><td class="code">'+hl(r.item,qs)+(r.box?'<span class="btag">BOX</span>':'')+(ret&&retWho(r)?'<br><small class="rwho" style="font-family:var(--body)">'+esc(retWho(r))+"</small>":"")+'</td><td class="num">'+esc(r.qtd)+'</td><td class="code">'+hl(r.pack,qs)+'</td><td class="num">'+esc(r.pal||"—")+"</td><td>"+(ret?'<b class="rtag">'+esc(retWhen(r))+"</b>"+(retWho(r)?'<br><small class="rwho">'+esc(retWho(r))+"</small>":""):esc(stDisp(r.st)))+'</td><td class="app">'+esc(appWhere(r.pack))+"</td></tr>"}
+function mtcRow(r,qs){{const ret=isRet(r);return '<tr data-ret="'+esc(JSON.stringify([r.pal,r.item,r.pack]))+'" class="'+(ret?"ret":(multiSel.has(retKey(r))?"msel":(r.verde?"verde":"")))+'"><td class="ck"><label class="rck"><input type="checkbox" aria-label="Retirado"'+(ret?" checked":"")+'><span></span></label></td><td class="code">'+hl(r.item,qs)+(r.box?'<span class="btag">BOX</span>'+(ret?'<span class="btag dk" title="Já decantado">DEC</span>':''):'')+(ret&&retWho(r)?'<br><small class="rwho" style="font-family:var(--body)">'+esc(retWho(r))+"</small>":"")+'</td><td class="num">'+esc(r.qtd)+'</td><td class="code">'+hl(r.pack,qs)+'</td><td class="num">'+esc(r.pal||"—")+"</td><td>"+(ret?'<b class="rtag">'+esc(retWhen(r))+"</b>"+(retWho(r)?'<br><small class="rwho">'+esc(retWho(r))+"</small>":""):esc(stDisp(r.st)))+'</td><td class="app">'+esc(appWhere(r.pack))+"</td></tr>"}
 }
 function boxExport(viv){
   if(!window.XLSX){toast("Gerador de Excel não carregou");return}
@@ -2345,19 +2524,31 @@ function renderBox(){
   const raw=$("mtcIn").value,q=skey(raw),qs=q.length>=2?qVariants(q):null;
   $("mtcPalForm").hidden=true;$("mtcBack").hidden=!qs;$("dash").hidden=true;$("mtcPals").innerHTML="";
   $("mtcIn").placeholder="Peça ou pack do BOX";
-  const B=mtc.rows.filter(r=>r.box),viv=B.filter(r=>!isRet(r));
-  const lst=(qs?B.filter(r=>hit(r.item,qs)>=0||hit(r.pack,qs)>=0):viv);
-  $("mtcInfo").textContent="📦 BOX · "+viv.length+" caixas no estoque · "+new Set(viv.map(r=>r.item)).size+" itens"+(B.length-viv.length?" · "+(B.length-viv.length)+" já foram para a linha":"");
+  const BA=mtc.rows.filter(r=>r.box);
+  const dias=[...new Set([].concat(...BA.map(r=>r.boxd)))].sort((a,b)=>(a==="anterior")-(b==="anterior")||b.localeCompare(a));
+  if(boxDia!=="todos"&&!dias.includes(boxDia))boxDia=dias[0]||"todos";
+  const B=boxDia==="todos"?BA:BA.filter(r=>r.boxd.includes(boxDia)),viv=B.filter(r=>!isRet(r));
+  const diaCard=(d,L)=>{const v=L.filter(r=>!isRet(r)).length,dc=L.length-v,pc=L.length?Math.round(dc*100/L.length):0;
+    return '<button type="button" class="bday'+(d===boxDia?" on":"")+'" data-bdia="'+esc(d)+'"><span class="bdt">📦 '+(d==="todos"?"Todos os dias":d==="anterior"?"BOX carregado antes (sem data)":"BOX do dia "+esc(boxDiaTxt(d)))+'</span><span class="bdn">'+L.length+' caixas · <b>'+v+'</b> faltam · <b class="r">'+dc+' DEC</b></span><span class="bdbar"><i style="width:'+pc+'%"></i></span></button>'};
+  const diasHtml=dias.length?'<div class="bdays"><h3>Box por dia <small>toque para abrir</small></h3>'+dias.map(d=>diaCard(d,BA.filter(r=>r.boxd.includes(d)))).join("")+(dias.length>1?diaCard("todos",BA):"")+'</div>':"";
+  const lst=(qs?B.filter(r=>hit(r.item,qs)>=0||hit(r.pack,qs)>=0):(boxFiltro==="falta"?viv:boxFiltro==="deck"?B.filter(isRet):B));
+  $("mtcInfo").textContent="📦 BOX · "+viv.length+" caixas no estoque · "+new Set(viv.map(r=>r.item)).size+" itens"+(B.length-viv.length?" · "+(B.length-viv.length)+" já decantadas (DEC, em vermelho)":"");
   let sum="";
-  if(!B.length)sum='<div class="mempty"><b>Nenhum item marcado como BOX ainda.</b>'+(podeAdmin()?' Toque em <b>Carregar lista de box (Excel)</b> logo abaixo.':' Peça ao administrador para carregar a lista de box.')+'</div>';
-  else sum='<div class="mempty">Toque no <b>quadrado</b> da caixa para dar baixa. A observação já vem como <b>Decante</b>.</div>';
+  if(!BA.length)sum='<div class="mempty"><b>Nenhum item marcado como BOX ainda.</b>'+(podeAdmin()?' Toque em <b>Carregar lista de box (Excel)</b> logo abaixo.':' Peça ao administrador para carregar a lista de box.')+'</div>';
+  else sum=diasHtml+'<div class="mempty">'+(boxDia&&boxDia!=="todos"?'<b>'+(boxDia==="anterior"?"BOX sem data":"BOX do dia "+esc(boxDiaTxt(boxDia)))+'</b> · ':'')+'Toque no <b>quadrado</b> da caixa para dar baixa. A observação já vem como <b>Decante</b>.</div>'+(qs?'':'<div class="mseg boxseg"><button type="button" data-bf="falta" aria-selected="'+(boxFiltro==="falta")+'">Falta decantar<small>'+viv.length+' caixas</small></button><button type="button" data-bf="deck" aria-selected="'+(boxFiltro==="deck")+'"><span><span class="btag dk" style="margin:0">DEC</span> Decantadas</span><small>'+(B.length-viv.length)+' caixas</small></button><button type="button" data-bf="todas" aria-selected="'+(boxFiltro==="todas")+'">Todas<small>'+B.length+' caixas</small></button></div>');
   if(viv.length)sum+='<button type="button" class="btn primary" id="boxXls">🖨️ Exportar BOX por pallet (Excel para imprimir)</button>';
+  if(B.length)sum+='<button type="button" class="btn" id="boxCmp">📋 Confronto: lista de box x estoque (Excel)</button>';
+  if(podeAdmin()&&boxDia&&boxDia!=="todos"&&mtcNewRaw)sum+='<button type="button" class="btn danger" id="boxDel">🗑️ Apagar o BOX do dia '+esc(boxDiaTxt(boxDia))+'</button>';
   if(podeAdmin())sum+='<button type="button" class="btn" id="boxLoad">📦 Carregar lista de box (Excel)</button><input type="file" id="boxFile" accept=".xlsx,.xls,.csv" hidden>';
   $("mtcSum").innerHTML=sum;
   if($("boxXls"))$("boxXls").onclick=()=>boxExport(viv);
+  if($("boxCmp"))$("boxCmp").onclick=()=>boxConfronto();
+  if($("boxDel"))$("boxDel").onclick=()=>boxApagarDia(boxDia);
+  document.querySelectorAll("#mtcSum [data-bdia]").forEach(b=>b.onclick=()=>{boxDia=b.dataset.bdia;try{localStorage.setItem("leitor-motor-boxdia",boxDia)}catch(e){}renderMtc();setTimeout(()=>{const s=document.querySelector(".boxseg")||$("mtcWrap");if(s)s.scrollIntoView({behavior:"smooth",block:"start"})},60)});
+  document.querySelectorAll("#mtcSum [data-bf]").forEach(b=>b.onclick=()=>{boxFiltro=b.dataset.bf;try{localStorage.setItem("leitor-motor-boxfiltro",boxFiltro)}catch(e){}renderMtc()});
   if($("boxLoad")){$("boxLoad").onclick=()=>{$("boxFile").value="";$("boxFile").click()};$("boxFile").onchange=e=>boxCarregar(e.target.files&&e.target.files[0])}
-  $("mtcWrap").hidden=!lst.length;
-  $("mtcBody").innerHTML=lst.slice(0,800).sort((a,b)=>isRet(a)-isRet(b)||a.item.localeCompare(b.item)||(+a.pal||999)-(+b.pal||999)).map(r=>mtcRow(r,qs||[])).join("");
+  $("mtcWrap").hidden=!lst.length;multiUpd(!!lst.length);
+  $("mtcBody").innerHTML=lst.slice().sort(mtcCmp((a,b)=>isRet(a)-isRet(b)||a.item.localeCompare(b.item)||(+a.pal||999)-(+b.pal||999))).slice(0,800).map(r=>mtcRow(r,qs||[])).join("");sortHeadUpd();
 }
 /* ===== painel de resumo: estoque, retiradas, conferências, pallets e pessoas ===== */
 function renderDash(){
@@ -2382,6 +2573,7 @@ function renderDash(){
      '<circle cx="66" cy="66" r="52" fill="none" stroke="var(--ds-a)" stroke-width="18" stroke-dasharray="'+dv.toFixed(1)+' '+(C-dv+0.01).toFixed(1)+'" transform="rotate(-90 66 66)" data-tip="No estoque: '+fmt(viv.length)+' caixas ('+pctV+'%)"/>'+
      '<text x="66" y="66" text-anchor="middle" font-family="var(--display)" font-size="30" font-weight="700" fill="var(--ink)">'+pctV+'%</text><text x="66" y="86" text-anchor="middle" font-size="11" fill="var(--muted)">no estoque</text></svg>'+
      '<div class="dleg"><span><i style="background:var(--ds-a)"></i>No estoque · <b>'+fmt(viv.length)+'</b> caixas</span><span><i style="background:var(--ds-r)"></i>Retiradas · <b>'+fmt(ret.length)+'</b> caixas</span><span style="color:var(--muted)">'+fmt(viv.reduce((t,r)=>t+qn(r),0))+' peças no estoque</span></div></div></div>'}
+  const iBox=h.length;
   // colunas por dia
   const cols=(title,sub,data,cor,unid)=>{const mx=Math.max(1,...data.map(d=>d[1]));
     return '<div class="dcard"><h3>'+title+'</h3><p class="dsub">'+sub+'</p><div class="dcols">'+data.map(([l,v])=>'<button type="button" class="dcol'+(v?'':' zero')+'" data-tip="'+esc(l)+': '+fmt(v)+' '+unid+'" aria-label="'+esc(l)+': '+v+' '+unid+'"><em>'+fmt(v)+'</em><i style="height:'+(v?Math.max(3,Math.round(v*100/mx)):0)+'%;background:'+cor+'"></i></button>').join("")+'</div><div class="dxl">'+data.map(([l])=>'<span>'+esc(l)+'</span>').join("")+'</div></div>'};
@@ -2409,7 +2601,33 @@ function renderDash(){
   // últimas retiradas
   const ult=ret.filter(r=>mk(r).at).sort((a,b)=>mk(b).at-mk(a).at).slice(0,6);
   h+='<div class="dcard"><h3>Últimas retiradas</h3>'+(ult.length?'<div class="dmov">'+ult.map(r=>{const m=mk(r),d=new Date(m.at);return '<div><b>'+esc(r.item)+'</b><span>'+pd(d.getDate())+"/"+pd(d.getMonth()+1)+" "+pd(d.getHours())+":"+pd(d.getMinutes())+'</span><span>Pallet '+esc(r.pal||"—")+' · qtd '+esc(r.qtd)+'</span><span>'+esc(m.quem||"—")+(m.lib?' / '+esc(m.lib):'')+'</span></div>'}).join("")+'</div>':'<p class="dempty">Nenhuma retirada ainda.</p>')+'</div>';
+  // ===== BOX / Decante =====
+  {const B=R.filter(r=>r.box);
+   if(B.length){const bv=B.filter(r=>!isRet(r)),bd=B.filter(isRet),pc=Math.round(bd.length*100/B.length);
+    const bHoje=bd.filter(r=>mk(r).at&&dk(mk(r).at)===hoje).length;
+    let x='<h2 style="margin-top:6px">📦 BOX · Decante <small>'+pc+'% já decantado</small></h2>';
+    x+='<div class="dkpi"><div><small>Caixas BOX</small><b>'+fmt(B.length)+'</b><span>'+fmt(new Set(B.map(r=>r.item)).size)+' itens diferentes</span></div>'+
+       '<div style="border-color:#E5243B"><small>Já decantadas · DEC</small><b style="color:#E5243B">'+fmt(bd.length)+'</b><span>'+(bHoje?bHoje+' hoje':'nenhuma hoje')+'</span></div>'+
+       '<div><small>Falta decantar</small><b>'+fmt(bv.length)+'</b><span>'+fmt(new Set(bv.map(r=>r.item)).size)+' itens · '+fmt(new Set(bv.map(r=>r.pal).filter(Boolean)).size)+' pallets</span></div>'+
+       '<div><small>Peças para decantar</small><b>'+fmt(bv.reduce((t,r)=>t+qn(r),0))+'</b><span>soma das quantidades</span></div></div>';
+    {const C=2*Math.PI*52,dv=C*(bd.length/B.length);
+     x+='<div class="dcard"><h3>Andamento do decante</h3><div class="dhero"><svg viewBox="0 0 132 132" role="img" aria-label="'+pc+'% decantado">'+
+       '<circle cx="66" cy="66" r="52" fill="none" stroke="color-mix(in srgb,var(--line) 70%,transparent)" stroke-width="18" data-tip="Falta decantar: '+fmt(bv.length)+' caixas"/>'+
+       '<circle cx="66" cy="66" r="52" fill="none" stroke="#E5243B" stroke-width="18" stroke-dasharray="'+dv.toFixed(1)+' '+(C-dv+0.01).toFixed(1)+'" transform="rotate(-90 66 66)" data-tip="Decantadas: '+fmt(bd.length)+' caixas ('+pc+'%)"/>'+
+       '<text x="66" y="66" text-anchor="middle" font-family="var(--display)" font-size="30" font-weight="700" fill="var(--ink)">'+pc+'%</text><text x="66" y="86" text-anchor="middle" font-size="11" fill="var(--muted)">decantado</text></svg>'+
+       '<div class="dleg"><span><i style="background:#E5243B"></i>Decantadas · <b>'+fmt(bd.length)+'</b> caixas</span><span><i style="background:var(--line)"></i>Falta · <b>'+fmt(bv.length)+'</b> caixas</span><button type="button" class="btn" data-goview="box" style="height:40px;margin-top:4px">Abrir aba BOX</button></div></div></div>'}
+    const bdia={};bd.forEach(r=>{const m=mk(r);if(m.at){const k=dk(m.at);bdia[k]=(bdia[k]||0)+1}});
+    const quemB={};bd.forEach(r=>{const v=String(mk(r).quem||"").trim();if(!v)return;const k=v.toLowerCase();quemB[k]=quemB[k]||[v,0];quemB[k][1]++});
+    x+='<div class="dtwo">'+cols("Decantes por dia","Caixas BOX que saíram nos últimos 7 dias",dias.map(d=>[d===hoje?"hoje":d,bdia[d]||0]),"#E5243B","caixas")+
+       hbar("Quem mais decantou","",Object.values(quemB).sort((a,b)=>b[1]-a[1]).slice(0,5),"#E5243B","caixas")+'</div>';
+    const palB={};bv.forEach(r=>{if(r.pal)palB[r.pal]=(palB[r.pal]||0)+1});
+    const itB={};bv.forEach(r=>{itB[r.item]=itB[r.item]||[r.item,0,0];itB[r.item][1]++;itB[r.item][2]+=qn(r)});
+    x+='<div class="dtwo">'+hbar("Pallets com mais BOX para decantar","Toque para abrir o pallet",Object.entries(palB).sort((a,b)=>b[1]-a[1]).slice(0,8).map(([p,n])=>["Pallet "+p,n,palObs(p)||"",p]),"var(--ds-a)","caixas","data-dpal")+
+       hbar("Itens BOX que mais faltam","",Object.values(itB).sort((a,b)=>b[1]-a[1]).slice(0,8).map(([it,n,q])=>[it,n,fmt(q)+" peças"]),"var(--ds-a)","caixas")+'</div>';
+    h=h.slice(0,iBox)+x+h.slice(iBox)}}
+  {const d=new Date();h=h.replace('atualizado agora','atualizado às '+pd(d.getHours())+':'+pd(d.getMinutes()))}
   el.innerHTML=h;
+  el.querySelectorAll("[data-goview=box]").forEach(b=>b.onclick=()=>{const t=$("boxTab");if(t){t.click();window.scrollTo({top:0,behavior:"smooth"})}});
 }
 (function(){
   let tip=null,tt,y0=0;
@@ -2439,7 +2657,7 @@ function renderRet(){
   const pd=n=>String(n).padStart(2,"0");
   const when=r=>{const m=retMark(r)||offRet(r);if(!m)return "";const d=new Date(m.at);return pd(d.getDate())+"/"+pd(d.getMonth()+1)+" "+pd(d.getHours())+":"+pd(d.getMinutes())};
   $("retXls").hidden=$("retForm").hidden=!L.length;const rq=norm($("retIn").value||"").replace(/\s/g,"");
-  const show=L.filter(r=>!retPalSel||(r.pal||"—")===retPalSel).filter(r=>{if(!rq)return true;const m=retMark(r)||offRet(r)||{};return norm([r.pal,r.item,r.pack,m.quem,m.lib,m.obs].join(" ")).replace(/\s/g,"").includes(rq)}).sort((a,b)=>((retMark(b)||offRet(b)||{}).at||0)-((retMark(a)||offRet(a)||{}).at||0));
+  const show=L.filter(r=>!retPalSel||(r.pal||"—")===retPalSel).filter(r=>{if(!rq)return true;const m=retMark(r)||offRet(r)||{};return norm([r.pal,r.item,r.pack,m.quem,m.lib,m.obs].join(" ")).replace(/\s/g,"").includes(rq)}).sort(retCmp);$("retSort").hidden=!L.length;document.querySelectorAll("#retSort [data-rs]").forEach(b=>{const on=b.dataset.rs===retSortK.k;b.setAttribute("aria-pressed",on?"true":"false");b.textContent=b.textContent.replace(/ [▲▼]$/,"")+(on?(retSortK.d>0?" ▲":" ▼"):"")});
   $("retBody").innerHTML=show.map(r=>{const m=retMark(r)||offRet(r)||{};return '<div class="rcard"><div class="rtop"><span class="rpal">Pallet '+esc(r.pal||"—")+'</span><span class="rwhen">'+esc(when(r))+'</span></div><div class="ritem">'+esc(r.item)+'</div><div class="rmeta">Qtd <b>'+esc(r.qtd)+'</b> · Pack <b>'+esc(r.pack||"—")+'</b></div><div class="rwho2">Retirou: <b>'+esc(m.quem||"—")+'</b> · Autorizou: <b>'+esc(m.lib||"—")+'</b></div>'+(m.obs?'<div class="rwho2">Obs: <b>'+esc(m.obs)+'</b></div>':'')+(retMark(r)?'<button type="button" class="rundo" data-rundo="'+esc(JSON.stringify([r.pal,r.item,r.pack]))+'">↩ Voltar ao pallet</button>':'<small class="rwhen">✔ baixa registrada na lista oficial</small>')+"</div>"}).join("");
   if(!show.length&&L.length)$("retBody").innerHTML='<div class="mempty">Nada encontrado nas retiradas'+(rq?" para “"+esc($("retIn").value.trim())+"”":"")+".</div>";
 }
@@ -2551,7 +2769,9 @@ function openSavePal(){
 }
 function openCamera(){$("camFile").value="";$("camFile").click()}
 let editing=null,pendingRender=false;
+function sesBarUpd(){const b=$("sesBar");if(!b)return;b.hidden=!ses;if(ses)$("sesWho").innerHTML="Conectado: <b>"+esc(ses.nome)+"</b>"+(ses.perfil==="admin"?'<span class="pf">administrador</span>':ses.perfil==="consulta"?'<span class="pf">só consulta</span>':"")}
 function render(){
+  try{sesBarUpd()}catch(e){}
   if(editing){pendingRender=true;return}
   const dups=dupKeys(),pc=packCol();
   const isDup=r=>pc&&dups.has(norm(r.vals[pc.id]).replace(/ /g,""));
@@ -3086,10 +3306,18 @@ $("retBody").addEventListener("click",e=>{const b=e.target.closest("[data-rundo]
   devolver(r);
 });
 $("mtcBack").onclick=()=>{$("mtcIn").value="";renderMtc();window.scrollTo({top:0,behavior:"smooth"})};
-$("mtcBody").addEventListener("click",e=>{if(!e.target.closest("td.ck"))return;e.preventDefault();const tr=e.target.closest("tr[data-ret]");if(!tr||!mtc)return;let k;try{k=JSON.parse(tr.dataset.ret)}catch(x){return}
+$("mtcBody").addEventListener("click",e=>{if(multiOn){const tr=e.target.closest("tr[data-ret]");if(!tr||!mtc)return;e.preventDefault();let k;try{k=JSON.parse(tr.dataset.ret)}catch(x){return}const r=mtc.rows.find(x=>(x.pal||"")===(k[0]||"")&&x.item===k[1]&&(x.pack||"")===(k[2]||""));if(!r)return;if(isRet(r)){toast("Esse item já foi retirado.");return}const key=retKey(r);if(multiSel.has(key))multiSel.delete(key);else multiSel.set(key,r);tr.classList.toggle("msel",multiSel.has(key));tr.classList.remove("verde");multiUpd(true);return}if(!e.target.closest("td.ck"))return;e.preventDefault();const tr=e.target.closest("tr[data-ret]");if(!tr||!mtc)return;let k;try{k=JSON.parse(tr.dataset.ret)}catch(x){return}
   const r=mtc.rows.find(x=>(x.pal||"")===(k[0]||"")&&x.item===k[1]&&(x.pack||"")===(k[2]||""));if(r)retToggle(r)});
 $("mSelNew").onclick=()=>setMtcSel("new");
 $("lockX").onclick=()=>{$("lock").hidden=true};
+$("sesOut").onclick=()=>confirmDel("Sair do login de "+(ses?ses.nome:"")+"? Vai pedir usuário e senha de novo.",()=>logout("Você saiu. Digite usuário e senha para entrar."),"Sim, sair");
+$("multiOn").onclick=multiStart;$("multiAll").onclick=multiAll;$("multiOff").onclick=multiStop;$("multiGo").onclick=multiRetirar;
+$("mtcHead").addEventListener("click",e=>{const th=e.target.closest("th[data-sort]");if(!th)return;const k=th.dataset.sort;
+  if(mtcSortK.k===k){if(mtcSortK.d>0)mtcSortK.d=-1;else mtcSortK={k:"",d:1}}else mtcSortK={k,d:1};
+  try{localStorage.setItem("leitor-motor-ordem",JSON.stringify(mtcSortK))}catch(x){}
+  renderMtc();toast(mtcSortK.k?"Ordem: "+th.textContent+(mtcSortK.d>0?(k==="qtd"||k==="pal"?" (menor → maior)":" (A → Z)"):(k==="qtd"||k==="pal"?" (maior → menor)":" (Z → A)")):"Ordem normal da lista")});
+$("retSort").addEventListener("click",e=>{const b=e.target.closest("[data-rs]");if(!b)return;const k=b.dataset.rs;
+  if(retSortK.k===k)retSortK.d=-retSortK.d;else retSortK={k,d:k==="at"?-1:1};renderRet()});
 $("lockF").addEventListener("submit",async e=>{
   e.preventDefault();const usuario=String($("lockUser").value||"").trim(),senha=String($("lockPin").value||"").trim();if(!usuario){$("lockErr").textContent="Digite o usuário.";$("lockUser").focus();return}if(!senha){$("lockErr").textContent="Digite a senha.";$("lockPin").focus();return}
   $("lockGo").disabled=true;$("lockErr").textContent="Conferindo…";
